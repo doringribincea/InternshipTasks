@@ -1,0 +1,22 @@
+
+CREATE TABLE Task (
+	TaskId INTEGER PRIMARY KEY AUTOINCREMENT,
+	title VARCHAR(256),
+	description VARCHAR(2560)
+);
+
+CREATE TABLE `Group`(
+	GroupId INTEGER PRIMARY KEY AUTOINCREMENT,
+	TaskId INTEGER,
+	FOREIGN KEY(TaskId) REFERENCES Task(TaskId)
+);
+
+CREATE TABLE Users( 
+    UserId INTEGER PRIMARY KEY AUTOINCREMENT, 
+    GroupId INTEGER,
+    Username VARCHAR(256),
+    Firstname VARCHAR(256),
+    Lastname VARCHAR(256),
+    UNIQUE(Username),
+    FOREIGN KEY(GroupId) REFERENCES `Group`(GroupId)
+);

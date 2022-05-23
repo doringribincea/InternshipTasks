@@ -1,7 +1,11 @@
 package com.dorin.task3;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class DataAccessObject {
-    private static final String DB_URL = "jdbc:sqlite:local.running.db";
+    public static final String DB_URL = "jdbc:sqlite:local.running.db";
 
     static {
         try {
@@ -11,4 +15,26 @@ public class DataAccessObject {
         }
     }
 
+    private Connection connection;
+
+    
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+
+
+
+    public DataAccessObject() {
+        try {
+            connection = DriverManager.getConnection(DB_URL);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
