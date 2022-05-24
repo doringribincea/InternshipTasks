@@ -8,7 +8,11 @@ import lombok.ToString;
 
 @ToString
 public class Task implements Serializable {
-    
+  
+    @Getter
+    @Setter
+    private int id;
+
     @Getter
     @Setter
     private String title;
@@ -17,7 +21,4 @@ public class Task implements Serializable {
     @Setter
     private String description;
 
-    @Getter
-    @Setter
-    private String ownerUserName;
 }
