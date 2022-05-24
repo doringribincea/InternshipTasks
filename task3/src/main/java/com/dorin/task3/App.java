@@ -1,8 +1,5 @@
 package com.dorin.task3;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.List;
 
 public class App {
@@ -21,10 +18,11 @@ public class App {
                 System.out.println("Datastore was cleaned");
                 return;
             case "-createUser":
-                createUser(args);
+                createUser(args, dao);
                 break;
             case "-showAllUsers":
-                // showAllUsers(users);
+                List<User> users = dao.selectAllUsers();
+                users.forEach(System.out::println);
                 break;
             case "-addTask":
                 // addTask(args, users, tasks);
@@ -36,7 +34,7 @@ public class App {
 
     }
 
-    public static void createUser(String[] args) {
+    public static void createUser(String[] args, DataAccessObject dao) {
         User user = new User();
         for (int i = 1; i < args.length; i++) {
             String[] splitted = args[i].split("=");
@@ -51,8 +49,10 @@ public class App {
             }
         }
 
-        
-
+        int res = dao.insertUser(user);
+        if(res > -1){
+            System.out.println(res);
+        }
     }
 
 }

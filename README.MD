@@ -48,3 +48,5 @@ $ java -jar ./task2.jar -showAllUsers
 
 ```
 
+## Exercise 3 (In progress)
+ - Implemented sqlite logic for add and select users

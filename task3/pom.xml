@@ -8,7 +8,7 @@
     <artifactId>task3</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>task2</name>
+    <name>task3</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -81,7 +81,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.dorin.task2.App</mainClass>
+                            <mainClass>com.dorin.task3.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
